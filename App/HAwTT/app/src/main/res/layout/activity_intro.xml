@@ -5,9 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ritvikkhanna.hawtt.IntroActivity">
-
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,18 +36,28 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_field"
-        android:hint="Enter Your Name"
+        android:id="@+id/edit_username"
+        android:hint="username"
         android:textSize="30dp"
-
         android:textAlignment="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/edit_password"
+        android:layout_marginTop="80dp" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_password"
+        android:hint="password"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_above="@+id/button_gs"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp" />
     <Button
         android:background="@drawable/buttonshape"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:text="Get Started"
+        android:text="Login! Get Started!"
         android:id="@+id/button_gs"
         android:layout_marginBottom="107dp"
         android:width="150dp"

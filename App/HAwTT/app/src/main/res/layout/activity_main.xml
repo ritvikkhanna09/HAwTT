@@ -7,19 +7,34 @@
     tools:context="ritvikkhanna.hawtt.MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
+        android:id="@+id/relative_layout_1"
         android:textAlignment="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="35dp"
             android:textColor="#FF3D00"
             android:id="@+id/greeting_text"
             android:textAlignment="center"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="#FF3D00"
+            android:id="@+id/name_text"
+            android:textAlignment="center"
+            android:layout_marginTop="67dp"
             android:layout_centerHorizontal="true" />
-
-
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative_layout_1"
+        android:id="@+id/relative_layout_2">
     </RelativeLayout>
 
 </RelativeLayout>

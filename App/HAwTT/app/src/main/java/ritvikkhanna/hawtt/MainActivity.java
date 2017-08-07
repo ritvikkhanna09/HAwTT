@@ -9,15 +9,17 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     String user_name,greeting_msg;
-    TextView greeting_textView;
+    TextView greeting_textView,name_textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         greeting_textView=(TextView)findViewById(R.id.greeting_text);
+        name_textView=(TextView)findViewById(R.id.name_text);
         Intent i=getIntent();
         user_name= i.getStringExtra("user_name");
-        greeting_msg=getGreetingMassage()+" "+user_name;
+        greeting_msg=getGreetingMassage();
+        name_textView.setText(user_name);
         greeting_textView.setText(greeting_msg);
 
     }

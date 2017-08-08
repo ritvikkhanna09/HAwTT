@@ -233,7 +233,7 @@ ul li.checked::before {
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
- 
+
   transform: rotate(45deg);
   height: 15px;
   width: 7px;
@@ -395,7 +395,7 @@ span{
 #snackbar.show {
     visibility: visible; /* Show the snackbar */
 
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
 However, delay the fade out process for 2.5 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -403,7 +403,7 @@ However, delay the fade out process for 2.5 seconds */
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
+    from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
 }
 
@@ -413,7 +413,7 @@ However, delay the fade out process for 2.5 seconds */
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
+    from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
 
@@ -479,6 +479,10 @@ list.addEventListener('click', function(ev) {
 
 // Create a new list item when clicking on the "Add" button
 function newElement(inputValue) {
+	/*
+	Add json file code for to-do list
+	*/
+
   var li = document.createElement("li");
   var t = document.createTextNode(inputValue);
 	t.tagName=inputValue;
@@ -571,11 +575,13 @@ function startDictation() {
 		flag=1;}
 		  if((e.results[l-2][0].transcript===" check list")||(e.results[l-2][0].transcript===" checklist"))
       {flag=1;
+			//add else
 
 	var ul = document.getElementById("myUL");
 var items = ul.getElementsByTagName("li");
 for (var i = 0; i < items.length; ++i) {
 	 var filter=e.results[l-1][0].transcript.toUpperCase();
+	 //add function to remove from json
    if (items[i].innerHTML.toUpperCase().indexOf(filter) > -1)
 	 {
 		 var div = items[i];
@@ -599,7 +605,7 @@ else{
 		console.log("ended once");
    // recognition.start();
 };
-    
+
 
 		recognition.onerror = function(e) {
 			console.log(e);

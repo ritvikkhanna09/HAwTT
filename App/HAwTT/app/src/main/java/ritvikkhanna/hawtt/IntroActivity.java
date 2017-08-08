@@ -3,7 +3,6 @@ package ritvikkhanna.hawtt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +15,7 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
         b=(Button)findViewById(R.id.button_gs);
-        edt=(EditText)findViewById(R.id.edit_field);
-        edt.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
+        edt=(EditText)findViewById(R.id.edit_username);
         b.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {

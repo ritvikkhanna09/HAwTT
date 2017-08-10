@@ -1,3 +1,4 @@
+var snap;
 var video = document.querySelector('#camera-stream'),
         image = document.querySelector('#snap'),
         start_camera = document.querySelector('#start-camera'),
@@ -86,8 +87,9 @@ var video = document.querySelector('#camera-stream'),
 
 //e.preventDefault();
 
-        var snap = takeSnapshot();
-
+        
+        snap = takeSnapshot();
+        console.log(typeof(snap));
         // Show image. 
         image.setAttribute('src', snap);
         image.classList.add("visible");
@@ -97,12 +99,72 @@ var video = document.querySelector('#camera-stream'),
         download_photo_btn.classList.remove("disabled");
 
         // Set the href attribute of the download button to the snap url.
-        download_photo_btn.href = snap;
+        //download_photo_btn.href = snap;
 
         // Pause video playback of stream.
         video.pause();
+        doit();
 
     }
+
+    function dataURItoBlob(dataURI) {
+  // convert base64 to raw binary data held in a string
+  // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+  var byteString = atob(dataURI.split(',')[1]);
+
+  // separate out the mime component
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+
+  // write the bytes of the string to an ArrayBuffer
+  var ab = new ArrayBuffer(byteString.length);
+
+  // create a view into the buffer
+  var ia = new Uint8Array(ab);
+
+  // set the bytes of the buffer to the correct values
+  for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+  }
+
+  // write the ArrayBuffer to a blob, and you're done
+  var blob = new Blob([ab], {type: mimeString});
+  return blob;
+
+}
+
+function doit(){
+    var a="xyz";
+    var database = firebase.database();
+  console.log("Now Storing");
+  bl = dataURItoBlob(snap);
+  var currentUserLocal = firebase.database().ref('currentUser');
+  currentUserLocal.on('value', function(snapshot) 
+  {
+    a=snapshot.val();
+    console.log(a);
+    // Create a root reference
+    var counterLocal=firebase.database().ref('Counter/' + a);
+    counterLocal.on('value', function(snapshot)
+    {   a2=snapshot.val();//count
+        console.log(a2);
+        var storageRef = firebase.storage().ref();
+        // Create a reference to 'images/mountains.jpg'
+        var throwbackpic = storageRef.child('throwback/'+ a + '/' + a2);
+        var file = bl
+        throwbackpic.put(file).then(function(snapshot) {
+        console.log('Uploaded a blob or file!'); 
+        //var up='{}'
+        firebase.database().ref('Counter/').set({
+            [a]:(a2+1)
+        });           
+    }
+
+    ); 
+    })
+    
+  });
+
+}
 
 
     delete_photo_btn.addEventListener("click", function(e){
@@ -176,6 +238,6 @@ var video = document.querySelector('#camera-stream'),
         controls.classList.remove("visible");
         start_camera.classList.remove("visible");
         video.classList.remove("visible");
-        snap.classList.remove("visible");
+        image.classList.remove("visible");
         error_message.classList.remove("visible");
     }

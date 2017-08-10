@@ -439,7 +439,7 @@
     <div class="controls">
       <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
       <a href="#" onclick="take_photo()" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
-      <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>  
+      <a onclick="doit()" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>  
     </div>
 
     <!-- Hidden canvas element. Used for taking snapshot of video. -->
@@ -636,4 +636,19 @@
   }
 </script>
 <script src="assets/js/script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+<script>
+  // Initialize Firebase
+ var config = {
+    apiKey: "AIzaSyB3FS9x4nqs8FdvbLzTmOSQcRXG5Jwcq5E",
+    authDomain: "hawtt-4313f.firebaseapp.com",
+    databaseURL: "https://hawtt-4313f.firebaseio.com",
+    projectId: "hawtt-4313f",
+    storageBucket: "hawtt-4313f.appspot.com",
+    messagingSenderId: "439526547125"
+  };
+firebase.initializeApp(config);
+  // Get a reference to the database service
+</script>
 </html>

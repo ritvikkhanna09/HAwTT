@@ -2,3 +2,4 @@
 .logs
 test.txt
 google-services.json
+.DS_Store

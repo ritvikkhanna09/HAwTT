@@ -3,6 +3,8 @@ package ritvikkhanna.hawtt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -10,6 +12,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     String user_name,greeting_msg;
     TextView greeting_textView,name_textView;
+    ImageView Button_iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         greeting_msg=getGreetingMassage();
         name_textView.setText(user_name);
         greeting_textView.setText(greeting_msg);
+        Button_iv=(ImageView) findViewById(R.id.mirror_switch);
+        Button_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
 
     }
 

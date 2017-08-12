@@ -33,8 +33,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="20dp"
         android:layout_below="@+id/relative_layout_1"
         android:id="@+id/relative_layout_2">
+        <RelativeLayout
+            android:background="#FF8085A0"
+            android:id="@+id/user_details"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mirror_switch_rv"
+            android:layout_below="@+id/user_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/mirror_switch"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/mirror_switch_off"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>

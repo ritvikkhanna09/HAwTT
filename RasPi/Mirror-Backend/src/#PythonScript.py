@@ -1,2 +1,0 @@
-#PythonScript
-#By Rahul !

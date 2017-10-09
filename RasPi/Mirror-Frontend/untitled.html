@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>
+Greeting
+</title>
+<script type="text/javascript">
+  function timeNow() 
+  {
+    var d = new Date(),
+        h = (d.getHours()<10?'0':'') + d.getHours(),
+        m = (d.getMinutes()<10?'0':'') + d.getMinutes(),
+        s = (d.getSeconds()<10?'0':'') + d.getSeconds();;
+        i=h+":"+m+":"+s;
+     //   document.getElementById("topbar").innerHTML=i;
+        if(h>=12 && h<16)
+          document.getElementById("a1").innerHTML="good afternoon";
+        else if(h>=16 && h<22)
+          document.getElementById("a1").innerHTML="good evening";
+        else if(h>=22 && h<24)
+          document.getElementById("a1").innerHTML="good night";
+        else
+          document.getElementById("a1").innerHTML="good morning";;
+  }
+</script>
+<style>
+#a1{
+  background-color: teal;
+  font-family: Avenir;
+  font-size: 20px;
+  padding: 20px;
+  width: 30%;
+  margin: auto;
+
+}
+</style>
+</head>
+<body>
+<div id="a1">
+</div>
+</body>
+</html>
